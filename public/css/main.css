@@ -1,0 +1,13 @@
+.message-title {
+    animation: rotateVertical 2s linear;
+}
+
+@keyframes rotateVertical {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
