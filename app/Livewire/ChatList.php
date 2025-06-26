@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Chat;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class ChatList extends Component
@@ -21,7 +22,6 @@ class ChatList extends Component
         // $data debe contener ['username', 'message', 'received']
         $this->messages = Chat::getChats();
     }
-
 
     public function render()
     {

@@ -22,7 +22,7 @@ class Chat extends Model
     }
 
     public static function getChats(){
-        $chats = Chat::all()->toArray();
+        $chats = Chat::orderBy('created_at', 'desc')->take(5)->get()->toArray();
         return $chats;
     }
 }

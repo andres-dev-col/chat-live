@@ -6,12 +6,12 @@
             <div>
                     @if($displayMessage)
                         <div class="alert alert-primary" style="margin-right: 50px;">
-                            <strong>{{$message["username"]}}</strong><small class="float-end">2s</small>
+                            <strong>{{$message["username"]}}</strong><small class="float-end">{{ floor(\Carbon\Carbon::parse($message['created_at'])->diffInMinutes(now())) }} min</small>
                             <br><span class="text-muted">{{$message["message"]}}</span>
                         </div>
                     @else
                         <div class="alert alert-success" style="margin-left: 50px;">
-                            <strong>{{$message["username"]}}</strong><small class="float-end">2s</small>
+                            <strong>{{$message["username"]}}</strong><small class="float-end">{{ floor(\Carbon\Carbon::parse($message['created_at'])->diffInMinutes(now())) }} min</small>
                             <br><span class="text-muted">{{$message["message"]}}</span>
                         </div>
                     @endif
