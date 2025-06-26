@@ -1,10 +1,24 @@
 <div>
     <h2 class="text-center message-title">Mensajes</h2>
-    <ul class="list-group">
-        @foreach ($messages as $message)
-        <li class="list-group-item">{{ $message['username']}}: {{ $message['message']}} </li>
-        @endforeach
-    </ul>
+    <div class="card">
+        <ul class="card-body">
+            @foreach ($messages as $message)
+            <div>
+                    @if($displayMessage)
+                        <div class="alert alert-primary" style="margin-right: 50px;">
+                            <strong>{{$message["username"]}}</strong><small class="float-end">2s</small>
+                            <br><span class="text-muted">{{$message["message"]}}</span>
+                        </div>
+                    @else
+                        <div class="alert alert-success" style="margin-left: 50px;">
+                            <strong>{{$message["username"]}}</strong><small class="float-end">2s</small>
+                            <br><span class="text-muted">{{$message["message"]}}</span>
+                        </div>
+                    @endif
+                </div>        
+            @endforeach
+        </ul>
+    </div>
 </div>
 
 <script>
@@ -18,7 +32,9 @@
 
         var channel = pusher.subscribe('chat-channel');
         channel.bind('chat-event', function(data) {
-            Livewire.dispatch('messageSent', {data});
+            Livewire.dispatch('messageSent', {
+                data
+            });
         });
     });
 </script>

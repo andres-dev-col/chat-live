@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Events\SentMessage;
+use App\Models\Chat;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -33,6 +34,12 @@ class ChatForm extends Component
         ]);
 
         //$this->dispatch('messageSent', ['username' => $this->search, 'message' => $this->message]);
+        $data = [
+            'username' => $this->search,
+            'message' => $this->message,
+            'user_id' => 1,
+        ];
+        Chat::saveChat($data);
         event(new SentMessage($this->message, $this->search));
         Log::info('Método sendMessage ejecutado');
         $this->search = '';
