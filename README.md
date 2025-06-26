@@ -55,7 +55,16 @@ This is a live chat application built with Laravel and Livewire.
     ```
     npm run dev
     ```
-9.  Start the development server:
+9.  Create an account on [Pusher](https://pusher.com/) and create a new app.
+10. Add the Pusher credentials to your `.env` file:
+
+    ```
+    PUSHER_APP_ID=your-app-id
+    PUSHER_APP_KEY=your-app-key
+    PUSHER_APP_SECRET=your-app-secret
+    PUSHER_APP_CLUSTER=your-app-cluster
+    ```
+11. Start the development server:
 
     ```
     php artisan serve
